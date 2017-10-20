@@ -17,9 +17,7 @@
  *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifdef HAVE_CONFIG_H
-# include <config.h>
-#endif
+#include <config.h>
 
 #include <Python.h>
 #include <pygobject.h>
@@ -142,7 +140,7 @@ nautilus_python_load_dir (GTypeModule *module,
 				
 				/* sys.path.insert(0, dirname) */
 				sys_path = PySys_GetObject("path");
-				py_path = PyString_FromString(dirname);
+				py_path = PyUnicode_FromString(dirname);
 				PyList_Insert(sys_path, 0, py_path);
 				Py_DECREF(py_path);
 			}
@@ -156,7 +154,11 @@ nautilus_python_init_python (void)
 {
 	PyObject *nautilus;
 	GModule *libpython;
+#if PYTHON_MAJOR_VERSION == 2
 	char *argv[] = { "nautilus", NULL };
+#else
+    wchar_t *argv[] = { L"nautilus", NULL };
+#endif
 
 	if (Py_IsInitialized())
 		return TRUE;

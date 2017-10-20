@@ -1,0 +1,11 @@
+#define G_LOG_DOMAIN @g_log_domain@
+
+#define PYGOBJECT_MAJOR_VERSION @pygobject_major_version@
+#define PYGOBJECT_MINOR_VERSION @pygobject_minor_version@
+#define PYGOBJECT_MICRO_VERSION @pygobject_micro_version@
+
+#define PYTHON_VERSION @python_version@
+#define PYTHON_MAJOR_VERSION @python_major_version@
+
+#define PY_LIB_LOC @python_lib_dir@
+#define DATADIR @pygobject_data_dir@

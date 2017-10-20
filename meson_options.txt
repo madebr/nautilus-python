@@ -1,0 +1,9 @@
+option ('python_version',
+        type: 'string',
+        value: '3')
+option ('enable-gtk-doc',
+        type: 'boolean',
+        value: false)
+option ('pygobject_version',
+        type: 'string',
+        value: '3')
